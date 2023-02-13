@@ -2,6 +2,7 @@ import { Flex, Text } from "@chakra-ui/react";
 import React from "react";
 import { Draggable } from "react-beautiful-dnd";
 import { Droppable } from "react-beautiful-dnd";
+import VideoPlayer from "./video-js";
 
 const Column = ({ column, tasks }) => {
   return (
@@ -14,7 +15,7 @@ const Column = ({ column, tasks }) => {
         px="1.5rem"
         mb="1.5rem"
       >
-        <Text fontSize="17px" fontWeight={600} color="subtle-text">
+        <Text fontSize="17px" fontWeight={400} color="subtle-text">
           {column.title}
         </Text>
       </Flex>
@@ -33,10 +34,10 @@ const Column = ({ column, tasks }) => {
                 {(draggableProvided, draggableSnapshot) => (
                   <Flex
                     mb="1rem"
-                    h="72px"
+                    h="200px"
                     bg="card-bg"
                     rounded="3px"
-                    p="1.5rem"
+                    p="0.5rem"
                     outline="2px solid"
                     outlineColor={
                       draggableSnapshot.isDragging
@@ -53,6 +54,7 @@ const Column = ({ column, tasks }) => {
                     {...draggableProvided.dragHandleProps}
                   >
                     <Text>{task.content}</Text>
+                    <VideoPlayer src="https://storage.googleapis.com/shaka-demo-assets/angel-one-hls/hls.m3u8"></VideoPlayer>
                   </Flex>
                 )}
               </Draggable>
